@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
-    <header>
-        <div>
-            Tic-Tac-Toe
-        </div>
-    </header>
-    <div id="main-container">
-    <div id="game-and-log">
-        <div id="grid-container">        
-            <div class="square">1</div>
-            <div class="square">2</div>
-            <div class="square">3</div>
-            <div class="square">4</div>
-            <div class="square">5</div>
-            <div class="square">6</div>
-            <div class="square">7</div>
-            <div class="square">8</div>
-            <div class="square">9</div>
-        </div>
-        <div id="log-container">
-            <div id="log-text">Game Log</div>
-            <div id="log"></div>
-        </div>
-    </div>
-    <div id="side-container">
-        <div class="input-div" id="input-div-one">
-            <label for="player-one">Player One - X</label>
-            <div class="submit-name">
-                <input type="text" id="player-one" name="player-one">
-                <button class="enter">Enter</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="styles.css"/>
+        <link href="https://api.fontshare.com/v2/css?f[]=supreme@701&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div>
+                Tic-Tac-Toe
+            </div>
+        </header>
+        <div id="main-container">
+            <div id="game-and-log">
+                <div id="grid-container">        
+                    <div class="square"><div class="game-piece" data-row="0" data-col="0"></div></div>
+                    <div class="square"><div class="game-piece" data-row="0" data-col="1"></div></div>
+                    <div class="square"><div class="game-piece" data-row="0" data-col="2"></div></div>
+                    <div class="square"><div class="game-piece" data-row="1" data-col="0"></div></div>
+                    <div class="square"><div class="game-piece" data-row="1" data-col="1"></div></div>
+                    <div class="square"><div class="game-piece" data-row="1" data-col="2"></div></div>
+                    <div class="square"><div class="game-piece" data-row="2" data-col="0"></div></div>
+                    <div class="square"><div class="game-piece" data-row="2" data-col="1"></div></div>
+                    <div class="square"><div class="game-piece" data-row="2" data-col="2"></div></div>
+                </div>
+                <div id="log-container">
+                    <div id="log-text">Game Log</div>
+                    <div id="log"><div id="welcome"><em>> Choose both players and click start to begin.</em></div></div>
+                </div>
+            </div>
+            <div id="side-container">
+                <div class="input-div" id="input-div-one">
+                    <label for="player-one">Player One - X</label>
+                    <div class="submit-name">
+                        <input type="text" id="player-one" name="player-one">
+                        <button class="enter" id="player-one-button">Enter</button>
+                    </div>
+                </div>
+                <div class="input-div" id="input-div-two">
+                    <label for="player-two">Player Two - O</label>
+                    <div class="submit-name">
+                        <input type="text" id="player-two" name="player-two">
+                        <button class="enter" id="player-two-button">Enter</button>
+                    </div>
+                </div>
+                <div id="button-container">
+                    <div class="control-button" id="start-button">Start</div>
+                    <div class="control-button" id="reset-button">Reset</div>
+                </div>
             </div>
         </div>
-        <div class="input-div" id="input-div-two">
-            <label for="player-two">Player Two - O</label>
-            <div class="submit-name">
-                <input type="text" id="player-two" name="player-two">
-                <button class="enter">Enter</button>
-            </div>
-        </div>
-        <div id="button-container">
-            <div class="control-button" id="start-button">Start</div>
-            <div class="control-button" id="reset-button">Reset</div>
-        </div>
-    </div>
-    </div>
-    <footer>    </footer>
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
