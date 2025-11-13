@@ -1,9 +1,11 @@
 (function (){
     const Gameboard = {
+        //Internal gamestate array
         gameState: [['_', '_', '_'],
                     ['_', '_', '_'],
                     ['_', '_', '_']],
 
+        //Resets all the booleans and fields
         resetGame: function () {
             const resetButton = document.querySelector('#reset-button')
             const gameLog = document.getElementById('log')
@@ -27,7 +29,8 @@
                 })
             })
         },
-
+        
+        //Objects that relate to various 'states' of gameplay
         gameOver: false,
         isX : true,
         gameStarted: false,
@@ -38,12 +41,7 @@
         playerTwoFound : false,
         logCounter : 0,
 
-        displayGame: function () {
-            for (row of this.gameState) {
-                console.log(row.join(''))
-            } 
-        },
-
+        //Button event for adding the player's name and setting playerFound boolean
         createPlayers: function () {
             const playerButton = document.querySelectorAll('button')
             playerButton.forEach((button) => {
@@ -66,11 +64,7 @@
             })
         },
 
-        chooseSymbol: function (){
-            this.playerOne.symbol = 'X'
-            this.playerTwo.symbol = 'O'
-        },
-
+        //Checks the rows of the array for 3 in a row
         checkRows: function (board) {
             console.log(board)
             for (let row = 0; row < 3; row++) {
@@ -82,6 +76,7 @@
             } return null
         },
 
+        //Checks the columns of the array for 3 in a row
         checkColumns: function (board) {
             for (let col = 0; col < 3; col++) {
                 if (board[0][col]!== '_') {
@@ -92,7 +87,8 @@
             } 
             return null
         },
-        
+
+        //Checks the diagonals of the array for 3 in row
         checkDiagonals: function (board) {
             if (board[0][0] !== '_') {
                 if (board[0][0] === board[1][1] && board[0][0] === board[2][2]) {
@@ -107,6 +103,7 @@
             return null
         },
 
+        //Checks to see if the board is full resulting in a tie
         checkTie: function (board) {
             for (let row of board) {
                 for (let square of row) {
@@ -116,6 +113,7 @@
             return true
         },
 
+        //Prints the winner and a reset string
         printWinner: function () {
             const gameLog = document.getElementById('log')
             let newDiv = document.createElement('div')
@@ -141,6 +139,7 @@
             this.playerTwoFound = false
         },
 
+        //Prints a 'tie' string and a reset string
         printTie: function () { 
             const gameLog = document.getElementById('log')
             let newDiv = document.createElement('div')
@@ -155,6 +154,7 @@
             Gameboard.cleanLog()
         },
 
+        //Runs all '3 in a row' functions and checks for a tie
         checkWinner: function (board) {
             if (this.checkRows(board)) {
                 if (this.checkRows(board) === 'X') {
@@ -183,6 +183,7 @@
             }
         },
 
+        //Prints actions of the game in a DOM window
         logGame: function () {
             const gameLog = document.getElementById('log')
             const gameSquares = document.querySelectorAll('.square')
@@ -219,6 +220,7 @@
             })
         },
 
+        //Logs choices made in the DOM into the gamestate array
         chooseMove: function () {
             const gameSquares = document.querySelectorAll('.square')
             gameSquares.forEach(function(gamePiece) {
@@ -250,6 +252,7 @@
             })
         },
 
+        //Prints player names when submitted
         logPlayers: function () {
             const gameLog = document.getElementById('log')
             const gameLogCounter = 0
@@ -280,7 +283,8 @@
                     })
                 })
         },
-        
+
+        //Prints that the game is ready and activates the function to select squares
         startGame: function () {
             startButton = document.querySelector('#start-button')
             startButton.addEventListener('click', () => {
@@ -298,21 +302,21 @@
             })
         },
 
+        //Runs functions for submitting player names, printing strings and start/reset
         init: function () {
-            console.log("Displaying game")
-            this.displayGame()
             console.log("Creating players")
             this.createPlayers()
             console.log("Initializing player log")
             this.logPlayers()
-            console.log ("Game log is ready")
+            console.log ("Initializing game log")
             this.logGame()
-            console.log("Game ready to start")
-            this.startGame()
+            console.log("Activating reset button")
             this.resetGame()
-            console.log("reset button online")
+            console.log("Activating start button")
+            this.startGame()
         },
 
+        //Deletes strings from the DOM as needed
         cleanLog: function () {
             console.log(this.logCounter)
             const log = document.querySelector('#log')
